@@ -10,8 +10,10 @@ workflows:
       - eb/deploy:
           app-dir: ~/project/backend
           context: aws-creds
-          application-name: 'AWS-EB-Activity'
-          environment-name: 'Awsebactivity-env'
+          application-name: 
+            description: 'AWS-EB-Activity'
+          environment-name: 
+            description: 'Awsebactivity-env'
           filters:
             branches:
               only:
