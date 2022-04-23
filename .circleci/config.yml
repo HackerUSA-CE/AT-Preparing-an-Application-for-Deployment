@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
-  eb: circleci/aws-elastic-beanstalk@1.0.0
+  eb: circleci/aws-elastic-beanstalk@2.0.1
   node: circleci/node@4.1.0
 workflows:
   elastic-beanstalk-workflow:
@@ -10,6 +10,7 @@ workflows:
       - eb/deploy:
           app-dir: ~/project/backend
           context: aws-creds
+          application-name: 'AWS-EB-Activity'
           environment-name: 'Awsebactivity-env'
           filters:
             branches:
