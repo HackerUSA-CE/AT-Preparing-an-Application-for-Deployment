@@ -16,5 +16,3 @@ workflows:
               only:
                 - main
           label: version-<<pipeline.number>>
-          requires:
-            - node/test
