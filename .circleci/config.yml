@@ -10,8 +10,8 @@ workflows:
       - eb/deploy:
           app-dir: ~/project/backend
           context: aws-creds
-          application-name: AWS-EB-Activity
-          environment-name: Awsebactivity-env
+          application-name: 'AWS-EB-Activity'
+          environment-name: 'Awsebactivity-env'
           filters:
             branches:
               only:
@@ -19,4 +19,3 @@ workflows:
           label: version-<<pipeline.number>>
           requires:
             - node/test
-
