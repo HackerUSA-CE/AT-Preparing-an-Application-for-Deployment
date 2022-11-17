@@ -8,7 +8,7 @@ workflows:
       - node/test:
           app-dir: ~/project/backend
       - eb/deploy:
-          app_dir: ~/project/backend
+          app-dir: ~/project/backend
           context: aws-creds
           application-name: EB-Rest-RANT
           environment-name: Ebrestrant-env
