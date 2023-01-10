@@ -1,0 +1,22 @@
+# This config is equivalent to both the '.circleci/extended/orb-free.yml' and the base '.circleci/config.yml'
+version: 2.1
+orbs:
+  eb: circleci/aws-elastic-beanstalk@2.0.1
+  node: circleci/node@4.7.0
+workflows:
+  elastic-beanstalk-workflow:
+    jobs:
+      - node/test:
+          app-dir: ~/project/backend
+      - eb/deploy:
+          app-dir: ~/project/backend
+          context: aws-creds
+          application-name: RestRantAWS
+          environment-name: restrantaws-env
+          filters:
+            branches:
+              only:
+                - main
+          label: version-<<pipeline.number>>
+          requires:
+            - node/test
