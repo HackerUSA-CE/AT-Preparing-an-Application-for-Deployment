@@ -16,7 +16,7 @@ function NewPlaceForm() {
 	async function handleSubmit(e) {
 		e.preventDefault()
 
-		await fetch(`${process.env.REACT_APP_SERVER_URL}places`, {
+		await fetch(`http://localhost:5000/places`, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'

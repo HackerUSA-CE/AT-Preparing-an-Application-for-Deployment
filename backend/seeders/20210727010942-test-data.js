@@ -22,7 +22,7 @@ module.exports = {
         city: 'Seattle',
         state: 'WA',
         cuisines: 'Thai, Pan-Asian',
-        pic: `${process.env.REACT_APP_SERVER_URL}/images/h-thai-ml-tables.jpg`,
+        pic: `http://localhost:${process.env.PORT}/images/h-thai-ml-tables.jpg`,
         founded: 1989,
         created_at: new Date(),
         updated_at: new Date()
@@ -31,7 +31,7 @@ module.exports = {
         city: 'Phoenix',
         state: 'AZ',
         cuisines: 'Coffee, Bakery',
-        pic: `${process.env.REACT_APP_SERVER_URL}/images/coffee-cat.png`,
+        pic: `http://localhost:${process.env.PORT}/images/coffee-cat.png`,
         founded: 2020,
         created_at: new Date(),
         updated_at: new Date()
