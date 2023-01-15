@@ -40,7 +40,11 @@ function PlaceDetails() {
 	async function deleteComment(deletedComment) {
 		// await fetch(`http://localhost:5000/places/${place.placeId}/comments/${deletedComment.commentId}`, {
 		await fetch(`${process.env.REACT_APP_SERVER_URL}places/${place.placeId}comments/${deletedComment.commentId}`, {
-			method: 'DELETE'
+			method: 'POST', 
+			headers: {
+				'Content-Type': 'application/json', 
+				'Authorization': `Bearer ${localStorage.getItem('token')}`
+			}
 		})
 
 		setPlace({
@@ -55,6 +59,7 @@ function PlaceDetails() {
 		const response = await fetch(`${process.env.REACT_APP_SERVER_URL}places/${place.placeId}/comments`, {
 			method: 'POST',
 			headers: {
+				'Authorization': `Bearer ${localStorage.getItem('token')}`,
 				'Content-Type': 'application/json'
 			},
 			body: JSON.stringify(commentAttributes)

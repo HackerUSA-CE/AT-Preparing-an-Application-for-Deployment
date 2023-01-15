@@ -16,6 +16,11 @@ function Navigation() {
                 </a>
             </li>
             <li style={{ float: 'right' }}>
+                <a href="#" onClick={() => history.push("/logout")}>
+                    Logout
+                </a>
+            </li>
+            <li style={{ float: 'right' }}>
                 <a href="#" onClick={() => history.push("/login")}>
                     Login
                 </a>
