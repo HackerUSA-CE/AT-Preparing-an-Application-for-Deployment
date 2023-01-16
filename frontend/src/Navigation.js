@@ -1,3 +1,4 @@
+import {Container, Navbar, Nav, NavDropdown } from 'react-bootstrap'
 import { useState, useEffect, useContext } from 'react'
 import { useHistory } from "react-router";
 import { CurrentUser } from './contexts/CurrentUser';
@@ -8,65 +9,65 @@ function Navigation() {
 
     const { currentUser } = useContext(CurrentUser)
 
-    let loginActions = (
-        <>
-            <li style={{ float: 'right' }}>
-                <a href="#" onClick={() => history.push("/sign-up")}>
-                    Sign Up
-                </a>
-            </li>
-            <li style={{ float: 'right' }}>
-                <a href="#" onClick={() => history.push("/login")}>
-                    Login
-                </a>
-            </li>
-        </>
-    )
+    function logIn() {
+        let loginActions
+        if (currentUser) {
+            loginActions = (
+                <>
+                  <li>Welcome back {currentUser.firstName} {currentUser.lastName}</li>
+                </>
+            ) 
+        } else {
+          loginActions = (
+            <>Stay curious, discover stories ... </>
+          )
+        }
+        return loginActions
+    }
+
+    let currentBanner = logIn()
 
     async function handleLogout(e) {
         e.preventDefault()
         localStorage.clear()
+        currentBanner = logIn()
         history.push('/places')
     }
+      
+return (
+    <Navbar sticky="top" collapseOnSelect expand="lg" bg="dark" variant="dark">
+      <Navbar.Brand href="#home" onClick={() => history.push("/")}>The Inkwell </Navbar.Brand>
+      
+      <Nav className="justify-content-end">
+        <Nav.Item>
+          <Nav.Link eventKey="disabled" disabled>
+            {currentBanner}
+          </Nav.Link>
+        </Nav.Item>
+      </Nav>
+      
+      <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+      
+      <Navbar.Collapse>
+        <Nav>
+          <Nav.Link href="#" onClick={() => history.push("/places")}>
+              Posts
+          </Nav.Link>
+          <Nav.Link href="#" onClick={() => history.push("/places/new")}>
+              Add Post
+          </Nav.Link>
+          <NavDropdown title="Account">
+            <NavDropdown.Item href="#" onClick={() => history.push("/login")}>Sign-in</NavDropdown.Item>
+            <NavDropdown.Item href="#" onClick={handleLogout}>Sign-out</NavDropdown.Item>
+            <NavDropdown.Divider />
+            <NavDropdown.Item href="#" onClick={() => history.push("/sign-up")}>Create account</NavDropdown.Item>
+          </NavDropdown>
+        </Nav>
+      </Navbar.Collapse>
 
-    if (currentUser) {
-        loginActions = (
-            <>
-                <li style={{ float: 'right' }}>
-                    <a href="#" onClick={handleLogout}>
-                        log-out
-                    </a>
-                </li>
-                <li style={{ float: 'right' }}>
-                    Logged in as {currentUser.firstName} {currentUser.lastName}
-                </li>
-            </>
-        )
-    }
+    </Navbar>
+  );
 
-
-    return (
-        <nav>
-            <ul>
-                <li>
-                    <a href="#" onClick={() => history.push("/")}>
-                        Home
-                    </a>
-                </li>
-                <li>
-                    <a href="#" onClick={() => history.push("/places")}>
-                        Places
-                    </a>
-                </li>
-                <li>
-                    <a href="#" onClick={() => history.push("/places/new")}>
-                        Add Place
-                    </a>
-                </li>
-                {loginActions}
-            </ul>
-        </nav>
-    )
-}
+  }
 
 export default Navigation;
