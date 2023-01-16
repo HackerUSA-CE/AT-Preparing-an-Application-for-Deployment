@@ -137,12 +137,13 @@ function PlaceDetails() {
 						Serving {place.cuisines}.
 					</h4>
 					<br />
-					<a className="btn btn-warning" onClick={editPlace}>
+					{/* REMOVING EDIT AND DELETE FUNCTIONALITY. USERS SHOULD NOT BE ABLE TO DELETE POSTS DIRECTLY*/}
+					{/* <a className="btn btn-warning" onClick={editPlace}>
 						Edit
 					</a>{` `}
 					<button type="submit" className="btn btn-danger" onClick={deletePlace}>
 						Delete
-					</button>
+					</button> */}
 				</div>
 			</div>
 			<hr />
