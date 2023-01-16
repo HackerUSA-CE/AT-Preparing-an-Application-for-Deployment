@@ -32,7 +32,7 @@ function LoginForm() {
         if (response.status === 200) {
             setCurrentUser(data.user)
             localStorage.setItem('token', data.token)
-            history.push(`/`)
+            history.push(`/places`)
         } else {
             setErrorMessage(data.message)
         }
