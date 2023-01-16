@@ -16,11 +16,6 @@ function Navigation() {
                 </a>
             </li>
             <li style={{ float: 'right' }}>
-                <a href="#" onClick={() => history.push("/logout")}>
-                    Logout
-                </a>
-            </li>
-            <li style={{ float: 'right' }}>
                 <a href="#" onClick={() => history.push("/login")}>
                     Login
                 </a>
@@ -28,13 +23,28 @@ function Navigation() {
         </>
     )
 
+    async function handleLogout(e) {
+        e.preventDefault()
+        localStorage.removeItem('token')
+        history.push('/places')
+        window.location.reload()
+    }
+
     if (currentUser) {
         loginActions = (
-            <li style={{ float: 'right' }}>
-                Logged in as {currentUser.firstName} {currentUser.lastName}
-            </li>
+            <>
+                <li style={{ float: 'right' }}>
+                    <a href="#" onClick={handleLogout}>
+                        log-out
+                    </a>
+                </li>
+                <li style={{ float: 'right' }}>
+                    Logged in as {currentUser.firstName} {currentUser.lastName}
+                </li>
+            </>
         )
     }
+
 
     return (
         <nav>
@@ -55,6 +65,11 @@ function Navigation() {
                     </a>
                 </li>
                 {loginActions}
+                {/* <li>
+                    <a href="#" onClick={handleLogout}>
+                        Log-out
+                    </a>
+                </li> */}
             </ul>
         </nav>
     )
