@@ -25,9 +25,8 @@ function Navigation() {
 
     async function handleLogout(e) {
         e.preventDefault()
-        localStorage.removeItem('token')
+        localStorage.clear()
         history.push('/places')
-        window.location.reload()
     }
 
     if (currentUser) {
@@ -65,11 +64,6 @@ function Navigation() {
                     </a>
                 </li>
                 {loginActions}
-                {/* <li>
-                    <a href="#" onClick={handleLogout}>
-                        Log-out
-                    </a>
-                </li> */}
             </ul>
         </nav>
     )
