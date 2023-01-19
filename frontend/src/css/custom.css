@@ -1,0 +1,24 @@
+.bg-Img {
+    text-align: center;
+    padding-top: 30px;
+    background-image: url(../images/backgroundpen.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height:726px
+}
+
+main {
+    background-color: whitesmoke;
+    padding: 30px;
+    padding-top: 10px;
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 4px;
+    text-align: left;
+}
+
+.navbar-collapse {
+    flex-direction: row-reverse;
+    padding-right: 5%;
+}

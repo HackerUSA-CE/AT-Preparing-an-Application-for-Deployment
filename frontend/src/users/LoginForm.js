@@ -4,8 +4,7 @@ import { CurrentUser } from "../contexts/CurrentUser";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Container } from "react-bootstrap";
-import backgroundpen from "../images/backgroundpen.jpg";
+// import backgroundpen from "../images/backgroundpen.jpg";
 import "../css/custom.css";
 // import { FormLabel } from "react-bootstrap";
 
@@ -48,42 +47,42 @@ function LoginForm() {
   }
 
   return (
-    <Container>
-      <div>
-        <img
-          className="img-fluid"
-          src={backgroundpen}
-          alt="backgroundpen"
-          height="100vh"
-        />
-        <main>
-          <h1 style={{ color: "black" }}>Sign-In</h1>
-          {errorMessage !== null ? (
-            <div className="alert alert-danger" role="alert">
-              {errorMessage}
-            </div>
-          ) : null}
-          <Form>
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Label>Email Address</Form.Label>
-              <Form.Control type="email" placeholder="Enter Email" />
-              <Form.Text className="text-muted">
-                We will never sell or share your email with anyone else.
-              </Form.Text>
-            </Form.Group>
+    <div className="bg-Img">
+      {/* <img
+        className="img-fluid"
+        src={backgroundpen}
+        alt="backgroundpen"
+        height="100vh"
+      /> */}
+      <main>
+        <h1 style={{ color: "black" }}>Sign-In</h1>
+        {errorMessage !== null ? (
+          <div className="alert alert-danger" role="alert">
+            {errorMessage}
+          </div>
+        ) : null}
+        <Form>
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Email Address</Form.Label>
+            <Form.Control type="email" placeholder="Enter Email" />
+            <Form.Text className="text-muted">
+              We will never sell or share your email with anyone else.
+            </Form.Text>
+          </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-              <Form.Label>Password</Form.Label>
-              <Form.Control type="password" placeholder="Enter Password" />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicCheckbox">
-              <Form.Check type="checkbox" label="Remember Me" />
-            </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label>Password</Form.Label>
+            <Form.Control type="password" placeholder="Enter Password" />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicCheckbox">
+            <Form.Check type="checkbox" label="Remember Me" />
+          </Form.Group>
+          <div className="text-center">
             <Button variant="dark">Sign-In</Button>
-          </Form>
-        </main>
-      </div>
-    </Container>
+          </div>
+        </Form>
+      </main>
+    </div>
   );
 }
 export default LoginForm;

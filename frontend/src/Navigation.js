@@ -40,7 +40,7 @@ return (
         The Inkwell{" "}
       </Navbar.Brand>
 
-      <Nav className="justify-content-end">
+      <Nav className="text-right">
         <Nav.Item>
           <Nav.Link eventKey="disabled" disabled>
             {currentBanner}
