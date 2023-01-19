@@ -55,7 +55,7 @@ function LoginForm() {
         height="100vh"
       /> */}
       <main>
-        <h1 style={{ color: "black" }}>Sign-In</h1>
+        <h1 style={{ color: "black" }}>Sign-in</h1>
         {errorMessage !== null ? (
           <div className="alert alert-danger" role="alert">
             {errorMessage}
@@ -78,7 +78,7 @@ function LoginForm() {
             <Form.Check type="checkbox" label="Remember Me" />
           </Form.Group>
           <div className="text-center">
-            <Button variant="dark">Sign-In</Button>
+            <Button variant="dark">Sign-in</Button>
           </div>
         </Form>
       </main>

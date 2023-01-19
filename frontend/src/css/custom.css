@@ -22,3 +22,27 @@ main {
     flex-direction: row-reverse;
     padding-right: 5%;
 }
+
+.bg-Img2 {
+    text-align: center;
+    background-image: url(../images/inkblot.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 726px;
+}
+
+.bg-Img3 {
+    background-image: url(../images/freelance.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 726px;
+}
+
+.carousel-item {
+    height: 500px;
+}
+
+.img-fluid {
+    height: 80%;
+    
+}
