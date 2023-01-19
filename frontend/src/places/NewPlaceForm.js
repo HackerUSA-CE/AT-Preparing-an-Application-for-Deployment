@@ -31,10 +31,10 @@ function NewPlaceForm() {
 
 	return (
 		<main>
-			<h1>Add a New Place</h1>
+			<h1>Add a New Post</h1>
 			<form onSubmit={handleSubmit}>
 				<div className="form-group">
-					<label htmlFor="name">Place Name</label>
+					<label htmlFor="name">Title</label>
 					<input
 						required
 						value={place.name}
@@ -44,7 +44,7 @@ function NewPlaceForm() {
 						name="name"
 					/>
 				</div>
-				<div className="form-group">
+				{/* <div className="form-group">
 					<label htmlFor="founded">Year Founded</label>
 					<input
 						required
@@ -54,9 +54,9 @@ function NewPlaceForm() {
 						id="founded"
 						name="founded"
 					/>
-				</div>
+				</div> */}
 				<div className="form-group">
-					<label htmlFor="pic">Place Picture</label>
+					<label htmlFor="pic">Image</label>
 					<input
 						value={place.pic}
 						onChange={e => setPlace({ ...place, pic: e.target.value })}
@@ -66,7 +66,7 @@ function NewPlaceForm() {
 					/>
 				</div>
 				<div className="form-group">
-					<label htmlFor="city">City</label>
+					<label htmlFor="city">Post</label>
 					<input
 						value={place.city}
 						onChange={e => setPlace({ ...place, city: e.target.value })}
@@ -75,7 +75,7 @@ function NewPlaceForm() {
 						name="city"
 					/>
 				</div>
-				<div className="form-group">
+				{/* <div className="form-group">
 					<label htmlFor="state">State</label>
 					<input
 						value={place.state}
@@ -92,8 +92,8 @@ function NewPlaceForm() {
 						onChange={e => setPlace({ ...place, cuisines: e.target.value })}
 						className="form-control"
 						id="cuisines" name="cuisines" required />
-				</div>
-				<input className="btn btn-primary" type="submit" value="Add Place" />
+				</div> */}
+				<input className="btn btn-primary" type="submit" value="Add Post" />
 			</form>
 		</main>
 	)

@@ -32,8 +32,8 @@ function NewCommentForm({ place, onSubmit }) {
         onSubmit(comment)
         setComment({
             content: '',
-            stars: 3,
-            rant: false,
+            // stars: 3,
+            // rant: false,
             authorId: authors[0]?.userId
         })
     }
@@ -42,7 +42,7 @@ function NewCommentForm({ place, onSubmit }) {
         <form onSubmit={handleSubmit}>
             <div className="row">
                 <div className="form-group col-sm-12">
-                    <label htmlFor="content">Content</label>
+                    <label htmlFor="content">Post a new comment</label>
                     <textarea
                         required
                         value={comment.content}
@@ -53,7 +53,7 @@ function NewCommentForm({ place, onSubmit }) {
                     />
                 </div>
             </div>
-            <div className="row">
+            {/* <div className="row">
                 <div className="form-group col-sm-4">
                     <label htmlFor="stars">Star Rating</label>
                     <input
@@ -79,8 +79,8 @@ function NewCommentForm({ place, onSubmit }) {
                         className="form-control"
                     />
                 </div>
-            </div>
-            <input className="btn btn-primary" type="submit" value="Add Comment" />
+            </div> */}
+            <input className="btn btn-primary" type="submit" value="Submit" />
         </form>
     )
 }
