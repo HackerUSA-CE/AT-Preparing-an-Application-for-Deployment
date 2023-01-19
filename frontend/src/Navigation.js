@@ -19,7 +19,9 @@ function Navigation() {
             ) 
         } else {
           loginActions = (
-            <>Stay curious, discover stories ... </>
+            <>
+              <li>Stay curious, discover stories ... </li>
+            </>
           )
         }
         return loginActions
@@ -27,11 +29,10 @@ function Navigation() {
 
     let currentBanner = logIn()
 
-    async function handleLogout(e) {
-        e.preventDefault()
+    function handleLogout(e) {
         localStorage.clear()
         currentBanner = logIn()
-        history.push('/places')
+        window.location = "/places"
     }
       
 return (
