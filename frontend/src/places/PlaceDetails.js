@@ -1,11 +1,14 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext} from "react";
 import { useHistory, useParams } from "react-router"
 import CommentCard from './CommentCard'
 import NewCommentForm from "./NewCommentForm";
+import { CurrentUser } from "../contexts/CurrentUser";
 
 function PlaceDetails() {
 
 	const { placeId } = useParams()
+
+	const { currentUser } = useContext(CurrentUser)
 
 	const history = useHistory()
 
@@ -24,6 +27,24 @@ function PlaceDetails() {
 	if (place === null) {
 		return <h1>Loading</h1>
 	}
+
+	function showComment() {
+		let commentActions
+		if (currentUser) {
+			commentActions = (
+				<>
+				  <NewCommentForm place={place} onSubmit={createComment}/>
+				</>
+			)
+		} else {
+			commentActions = (
+				<></>
+			)
+		}
+		return commentActions
+	} 
+
+	let commentBox = showComment()
 
 	function editPlace() {
 		history.push(`/places/${place.placeId}/edit`)
@@ -77,37 +98,18 @@ function PlaceDetails() {
 
 	}
 
-
-
 	let comments = (
 		<h3 className="inactive">
 			No comments yet!
 		</h3>
 	)
-	let rating = (
-		<h3 className="inactive">
-			Not yet rated
-		</h3>
-	)
+
 	if (place.comments.length) {
-		let sumRatings = place.comments.reduce((tot, c) => {
-			return tot + c.stars
-		}, 0)
-		let averageRating = Math.round(sumRatings / place.comments.length)
-		let stars = ''
-		for (let i = 0; i < averageRating; i++) {
-			stars += '⭐️'
-		}
-		rating = (
-			<h3>
-				{stars} stars
-			</h3>
-		)
-		comments = place.comments.map(comment => {
-			return (
-				<CommentCard key={comment.commentId} comment={comment} onDelete={() => deleteComment(comment)} />
-			)
-		})
+	    comments = place.comments.map(comment => {
+	    	return (
+	    		<CommentCard key={comment.commentId} comment={comment} onDelete={() => deleteComment(comment)} />
+	    	)
+	    })
 	}
 
 
@@ -128,10 +130,7 @@ function PlaceDetails() {
 				{comments}
 			</div>
 			<hr />
-			<NewCommentForm
-				place={place}
-				onSubmit={createComment}
-			/>
+			{commentBox}
 		</main>
 	)
 }

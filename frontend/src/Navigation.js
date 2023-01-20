@@ -8,23 +8,23 @@ function Navigation() {
 
   const { currentUser } = useContext(CurrentUser);
 
-    function logIn() {
-        let loginActions
-        if (currentUser) {
-            loginActions = (
-                <>
-                  <li>Welcome back {currentUser.firstName} {currentUser.lastName}</li>
-                </>
-            ) 
-        } else {
+  function logIn() {
+      let loginActions
+      if (currentUser) {
           loginActions = (
-            <>
-              <li>Stay curious, discover stories ... </li>
-            </>
-          )
-        }
-        return loginActions
-    }
+              <>
+                <li>Welcome back {currentUser.firstName} {currentUser.lastName}</li>
+              </>
+          ) 
+      } else {
+        loginActions = (
+          <>
+            <li>Stay curious, discover stories ... </li>
+          </>
+        )
+      }
+      return loginActions
+  }
 
   let currentBanner = logIn();
 
