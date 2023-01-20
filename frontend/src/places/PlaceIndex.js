@@ -35,7 +35,7 @@ function PlaceIndex(data) {
   });
   return (
     <main>
-      <h1 style={{ color: "black" }}>Places to Rant or Rave About</h1>
+      <h1 style={{ color: "black" }}>Explore thoughts</h1>
       <div className="row-reverse">{placesFormatted}</div>
     </main>
   );

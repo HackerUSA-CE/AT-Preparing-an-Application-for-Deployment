@@ -69,7 +69,7 @@ function Home() {
 
         <a href="/places">
           <div className="text-center">
-            <Button variant="dark">Places Page</Button>
+            <Button variant="dark">Posts Page</Button>
           </div>
         </a>
       </div>
