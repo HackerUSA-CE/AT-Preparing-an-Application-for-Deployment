@@ -1,8 +1,12 @@
 import Carousel from "react-bootstrap/Carousel";
 import Button from "react-bootstrap/Button";
+import { useHistory } from "react-router";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function Home() {
+
+  const history = useHistory()
+
   return (
     <main>
       <div>
@@ -67,36 +71,12 @@ function Home() {
           </Carousel.Item>
         </Carousel>
 
-        <a href="/places">
           <div className="text-center">
-            <Button variant="dark">Posts Page</Button>
+            <Button variant="dark" onClick={ () => history.push('/places') }>Read Posts</Button>
           </div>
-        </a>
       </div>
     </main>
   );
 }
 
 export default Home;
-
-{
-  /* <h1 style={{ color: "black" }}>Welcome to The Inkwell</h1>
-      <div>
-        <img
-          height="300"
-          width="500"
-          src={process.env.REACT_APP_SERVER_URL + "images/chia-fruit-drink.jpg"}
-          alt="Chia Fruit Shake"
-        />
-        <div>
-          Photo by <a href="AUTHOR_LINK">Brenda Godinez</a> on{" "}
-          <a href="UNSPLASH_LINK">Unsplash</a>
-        </div>
-      </div>
-      <a href="/places">
-        <div className="text-center">
-          <Button variant="dark">Places Page</Button>
-        </div>
-        <button className="btn btn-primary">Places Page</button>
-      </a> */
-}
