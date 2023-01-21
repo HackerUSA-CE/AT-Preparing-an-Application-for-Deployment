@@ -15,7 +15,7 @@ function Home() {
           <Carousel.Item>
             <img
               className="img-fluid"
-              src="https://images.unsplash.com/photo-1560717845-968823efbee1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTQ5fHxzdHJlZXQlMjBmb29kfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60"
+              src="https://miro.medium.com/max/1400/0*G_FqadiMd5ADC0At"
               alt="First slide"
             />
             <Carousel.Caption>
@@ -26,7 +26,7 @@ function Home() {
           <Carousel.Item>
             <img
               className="img-fluid"
-              src="https://media.istockphoto.com/id/1286140784/photo/sancocho.jpg?s=612x612&w=0&k=20&c=UPXD9bK_SIcbQje4pFhyfRUExziiti-JKOD_9t07k0U="
+              src="https://miro.medium.com/max/1400/0*fcFX2187BSHqoNCR"
               alt="Second slide"
             />
 
