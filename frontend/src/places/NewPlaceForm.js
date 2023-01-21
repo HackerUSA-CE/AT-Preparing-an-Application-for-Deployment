@@ -40,7 +40,7 @@ function NewPlaceForm() {
               required
               value={place.name} 
               onChange={ e=> setPlace({ ...place, name: e.target.value }) }
-              placeholder="Enter Name of Place" />
+              placeholder="Enter blog title" />
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicPlacePicture">
@@ -49,16 +49,18 @@ function NewPlaceForm() {
               required 
               value={place.pic} 
               onChange={ e => setPlace( { ...place, pic: e.target.value })}
-              placeholder="Add Picture" />
+              placeholder="Add a picture" />
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasiCuisines">
             <Form.Label>Post</Form.Label>
             <Form.Control 
+              as="textarea"
+              rows={12}
               required
               value={place.city} 
               onChange={ e => setPlace( { ...place, city: e.target.value })}
-              placeholder="Add Post" />
+              placeholder="Start writing" />
           </Form.Group>
 
           <div className="text-center">

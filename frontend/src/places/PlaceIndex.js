@@ -25,13 +25,11 @@ function PlaceIndex(data) {
             {place.name}
           </a>
         </h2>
-        <p className="text-center">{place.cuisines}</p>
-        <img style={{ maxWidth: 200 }} src={place.pic} alt={place.name} />
-        <p className="text-center">
-          Located in {place.city}, {place.state}
-        </p>
+        <img style={{ maxWidth: 200 }} src={place.pic} alt="blog image" />
+        <p>{place.city}</p>
       </div>
     );
+    
   });
   return (
     <main>
