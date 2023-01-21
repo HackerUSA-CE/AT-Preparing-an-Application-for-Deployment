@@ -119,10 +119,10 @@ function PlaceDetails() {
 				</div>
 				<div className="col-sm-6">
 					<img style={{ maxWidth: 200 }} src={place.pic} alt={place.name} />
-					<h1>{place.name}</h1>
-					<h3>
+					<h3>{place.name}</h3>
+					<h5>
 						{place.city}
-					</h3>
+					</h5>
 				</div>
 			<hr />
 			<h2>Comments</h2>
