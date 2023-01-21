@@ -41,6 +41,7 @@ function PlaceIndex(data) {
                 </Button>
               </Card.Body>
             </Card>
+            <br></br>
           </Col>
       )
   })
