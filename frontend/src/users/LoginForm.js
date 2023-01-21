@@ -58,7 +58,7 @@ function LoginForm() {
         <Alert variant="warning">
           <Alert.Heading>Please enter credentials</Alert.Heading>
           <p>
-          To start writing, users must have an account and be signed-in.
+          To start writing, users must have an <Alert.Link href="#" onClick={ ()=> history.push('/sign-up')}> account</Alert.Link> and be signed-in.
           </p>
         </Alert>
 
