@@ -11,9 +11,7 @@ function NewPlaceForm() {
   const [place, setPlace] = useState({
     name: '',
     pic: '',
-    city: '',
-    state: '',
-    cuisines: '',
+    city: ''
   });
 
   async function handleSubmit(e) {
