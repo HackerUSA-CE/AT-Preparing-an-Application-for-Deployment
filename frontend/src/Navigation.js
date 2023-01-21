@@ -28,11 +28,19 @@ function Navigation() {
 
   let currentBanner = logIn();
 
-    function handleLogout(e) {
-        localStorage.clear()
-        currentBanner = logIn()
-        window.location = "/places"
+  function handleLogout() {
+      localStorage.clear()
+      currentBanner = logIn()
+      window.location = "/places"
+  }
+
+  function handleStartWriting() {
+    if (currentUser) {
+      history.push("/places/new")
+    } else {
+      history.push("/login")
     }
+  }
       
 return (
     <Navbar sticky="top" collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -55,8 +63,8 @@ return (
           <Nav.Link href="#" onClick={() => history.push("/places")}>
             Posts
           </Nav.Link>
-          <Nav.Link href="#" onClick={() => history.push("/places/new")}>
-            Add Post
+          <Nav.Link href="#" onClick={handleStartWriting}>
+            Start Writing
           </Nav.Link>
           <NavDropdown title="Account">
             <NavDropdown.Item href="#" onClick={() => history.push("/login")}>

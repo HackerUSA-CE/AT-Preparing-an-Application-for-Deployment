@@ -3,6 +3,7 @@ import { useHistory } from "react-router";
 import { CurrentUser } from "../contexts/CurrentUser";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import Alert from "react-bootstrap/Alert";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../css/custom.css";
 
@@ -47,11 +48,20 @@ function LoginForm() {
     <div className="bg-Img">
       <main>
         <h1 style={{ color: "black" }}>Sign-in</h1>
+
         {errorMessage !== null ? (
           <div className="alert alert-danger" role="alert">
             {errorMessage}
           </div>
         ) : null}
+
+        <Alert variant="warning">
+          <Alert.Heading>Please enter credentials</Alert.Heading>
+          <p>
+          To start writing, users must have an <Alert.Link href="#" onClick={ ()=> history.push('/sign-up')}> account</Alert.Link> and be signed-in.
+          </p>
+        </Alert>
+
         <Form onSubmit={handleSubmit}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Email Address</Form.Label>

@@ -1,9 +1,14 @@
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router";
+import Container from 'react-bootstrap/Container'
+import Button from "react-bootstrap/esm/Button";
+import Card from 'react-bootstrap/Card';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 function PlaceIndex(data) {
   const history = useHistory();
-
+  const columnsPerRow = 3;
   const [places, setPlaces] = useState([]);
 
   useEffect(() => {
@@ -18,26 +23,37 @@ function PlaceIndex(data) {
   }, []);
 
   let placesFormatted = places.map((place) => {
-    return (
-      <div className="col-sm-6" key={place.placeId}>
-        <h2>
-          <a href="#" onClick={() => history.push(`/places/${place.placeId}`)}>
-            {place.name}
-          </a>
-        </h2>
-        <p className="text-center">{place.cuisines}</p>
-        <img style={{ maxWidth: 200 }} src={place.pic} alt={place.name} />
-        <p className="text-center">
-          Located in {place.city}, {place.state}
-        </p>
-      </div>
-    );
-  });
+      return (
+          <Col>
+          <Card style={{ 
+            height: '25rem', 
+            width: '18rem' }}>
+              <Card.Img variant="top" src={place.pic} alt="blog image" />
+              <Card.Body>
+                <Card.Title>{place.name}</Card.Title>
+                <Card.Text style={{textIndent: 100%Button, 
+                  whiteSpace: "nowrap", 
+                  overflow: "hidden"}}>
+                    {place.city}
+                </Card.Text>
+                <Button variant="primary" onClick={ () => history.push(`/places/${place.placeId}` )}>
+                  Read more
+                </Button>
+              </Card.Body>
+            </Card>
+          </Col>
+      )
+  })
+  
   return (
-    <main>
+    <>
       <h1 style={{ color: "black" }}>Explore thoughts</h1>
-      <div className="row-reverse">{placesFormatted}</div>
-    </main>
+      <Container>
+        <Row xs={1} md={columnsPerRow}>
+          {placesFormatted}
+        </Row>
+      </Container>
+    </>
   );
 }
 
