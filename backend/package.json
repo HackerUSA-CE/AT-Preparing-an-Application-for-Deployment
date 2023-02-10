@@ -6,7 +6,6 @@
   "scripts": {
     "dev": "nodemon index",
     "start": "node index",
-    "test": "echo \"no test specified\" && exit 0"
   },
   "keywords": [],
   "author": "",
