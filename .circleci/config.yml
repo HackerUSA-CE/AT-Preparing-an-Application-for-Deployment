@@ -13,7 +13,7 @@ workflows:
   elastic-beanstalk-workflow:
     jobs:
       - node/test:
-        app-dir: ~/project/backend  
+          app-dir: ~/project/backend  
       - eb/deploy:
           app-dir: ~/project/backend
           context: aws-creds
