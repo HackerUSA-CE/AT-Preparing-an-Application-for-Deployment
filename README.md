@@ -1,31 +1,36 @@
-# Inkwell
+# [The Inkwell](http://mp3inkwell-env.eba-pfyiqrvn.us-east-1.elasticbeanstalk.com/#home)
 
-## Express React SQL Full CRUD App
-
-## What is Inkwell
+## Description
 
 Inkwell is an application for social networking your thoughts for yourself and others. To teach, learn, and express.
 
-Come with questions, leave with answers. All data being self regulated, be ready to take recommendations lightly. When using this to express stories and ideas, be open to praise and criticism alike.
-Your thoughts move from the tip of your Pen, into the Inkwell.
+Come with questions, leave with answers. All data being self regulated, be ready to take recommendations and feedback. Be open to praise and criticism alike.
 
+Your thoughts move from the tip of your Pen into the Inkwell!
+
+## Features
 - Write stories
-- Give advice
-- Critique others (Respectfully)
-- Create, edit or delete your postings and interactions with others.
+- Give and received advice
+- Create, edit, or delete your postings and interactions with others.
+    - Account setup required to interact with user community
 
-##Techstack
-_Application_:
+## Technologies
 
-- React front-end
-- Express + Node.js back-end
-- SQL PgAdmin Database
+- _Front-end:_ [React](https://react.dev/) with [React Bootstrap](https://react-bootstrap.github.io/)
+- _Back-end:_ [Express](https://expressjs.com/) + [Node.js](https://nodejs.org/en)
+- _Database:_ [PostgresSQL](https://www.postgresql.org/docs/)
+- _Deployment:_ [AWS Elastic Beanstalk](https://aws.amazon.com/elasticbeanstalk/) 
 
-### Setup
+## Technical information
 
-First, you'll need a Postgres database to connect to. Follow instructions here to setup the database and save credentials for the next step.
+### Steps for running application
 
-Next create a `.env` file inside of `backend`. It will need to contain the following environment variables (change the values for the database to match what you defined in the previous step)
+1. Create Postgres database locally 
+    - Follow instructions [here](https://www.postgresql.org/docs/current/tutorial-install.html) to setup the database 
+    - Save credentials for subsequent steps
+
+2. Create `.env` file inside of `backend` folder with the following variables (should
+match database specifications from previous step): 
 
 ```
 PORT=5000
@@ -34,8 +39,30 @@ DB_PASSWORD=password
 DB_DATABASE=inkwell
 ```
 
-Next `cd` into `backend` and run `npm install` to install dependencies for the API.
+3. Launch terminal and navigate to `backend` directory, then run `npm install`. This will install required App dependencies listed in `package.json`.
 
-Next, `cd` into `frontend`, and run `npm install` to install dependencies for the React app.
+4. Navigate to `frontend` folder and similarly run `npm install` to load front-end 
+dependencies.
 
-Finally, in separate terminals, run `npm start` in each folder so that the API and React app are running at the same time.
+5. In separate terminals, navigate to `backend` and `frontend` then run `npm start`.
+
+6. Application should launch.
+
+### Steps for deployment
+
+1. Create a build of the front-end, making sure the production version runs.
+
+2. Create a zip of the back-end contents, while making sure to only include the files 
+and not the parent folder.
+    - `package.json` needs to exist at the root of the project, not nested in a folder.
+    - `Seeders`, `node_modules`, and `.env` do not need to be included in the zip.
+    - In its current form, zip file should only include: `config`, `controllers`, 
+    `index.js`, `migrations`, `models`, `package-lock.json`, `package.json`, and 
+    `public`.
+
+3. Once zipped, navigate to _AWS Services - Elastic Beanstalk_. See [Documentation](https://docs.aws.amazon.com/elastic-beanstalk/index.html) for 
+technical instruction on how to create and launch application.
+
+### Issues
+- Post button on `New Comment` causes the deployed version to crash.
+- Log-out button works locally but renders JSON in deployed version.
