@@ -5,17 +5,13 @@ orbs:
 workflows:
   elastic-beanstalk-workflow:
     jobs:
-      - node/test:
-          app-dir: ~/project/backend
       - eb/deploy:
           app-dir: ~/project/backend
           context: aws-creds
-          application-name: Project
-          environment-name: project-env
+          application-name: SDSU-Deploy-Project
+          environment-name: SDSU-Deploy-Project-env
           filters:
             branches:
               only:
                 - main
           label: version-<<pipeline.number>>
-          requires:
-            - node/test
